@@ -114,6 +114,9 @@ riscv_parse_arch_string (const char *isa, int *flags, location_t loc)
   if (*p == 'c')
     *flags |= MASK_RVC, p++;
 
+  if (*p == 'v')
+    return;
+
   if (*p)
     {
       error_at (loc, "-march=%s: unsupported ISA substring %qs", isa, p);
